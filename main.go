@@ -16,6 +16,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	question1(scanner)
 	question2(scanner)
+	question3(scanner)
 }
 
 func question1(scanner *bufio.Scanner) {
@@ -80,6 +81,35 @@ func question2(scanner *bufio.Scanner) {
 		println("Wrong! Try again!")
 	}
 
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Error:", err)
+	}
+}
+
+func question3(scanner *bufio.Scanner) {
+	q := Red + `Как работет инструкция defer? В какой момент расчитываются значения парамеров функции при отложенном вызове? Что выведет этот код?` + Green +
+		`for i := 0; i < 5; i++ {
+		defer fmt.Printf("%d ", i)
+	}` + ResetColor
+	println(q)
+	println("1. 4, 3, 2, 1, 0")
+	println("2. 0, 1, 2, 3, 4")
+	println("3. 0")
+	println("4. 4")
+	println("5. 4, 4, 4, 4")
+
+	for scanner.Scan() {
+		text := scanner.Text()
+		if text == "" {
+			println("Sad to see you go!")
+			break
+		}
+		if text == "1" {
+			println("Correct!")
+			break
+		}
+		println("Wrong! Try again!")
+	}
 	if err := scanner.Err(); err != nil {
 		fmt.Println("Error:", err)
 	}
