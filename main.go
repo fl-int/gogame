@@ -16,10 +16,6 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	question1(scanner)
 	question2(scanner)
-	// println(Red + "this is red" + Reset)
-	// println("this is usual")
-	// print("\a")
-	// print("\b")
 }
 
 func question1(scanner *bufio.Scanner) {
@@ -50,19 +46,20 @@ func question1(scanner *bufio.Scanner) {
 func question2(scanner *bufio.Scanner) {
 	// todo: add code example
 	const q = Red + "В каком порядке произойдет инициализация переменных:" + Green + `
-		package main
-		var a = 1
-		var b = a + c
-		var c = f()
-		var d = 2
+	package main
 
-		func f() {
-			...
-		}
+	var a = 1
+	var b = a + c
+	var c = f()
+	var d = 2
 
-		func main() {
-			...
-		}
+	func f() {
+		...
+	}
+
+	func main() {
+		...
+	}
 	` + ResetColor
 	println(q)
 	println("1. a,b,c,d")
